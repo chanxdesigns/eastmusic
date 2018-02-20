@@ -6,12 +6,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { NowPlayingPage } from "../pages/now-playing/now-playing";
 import { Media } from "@ionic-native/media";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    NowPlayingPage
   ],
   imports: [
     BrowserModule,
@@ -20,7 +22,8 @@ import { Media } from "@ionic-native/media";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    NowPlayingPage
   ],
   providers: [
     StatusBar,
