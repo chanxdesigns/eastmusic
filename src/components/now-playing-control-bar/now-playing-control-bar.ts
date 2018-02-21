@@ -13,9 +13,7 @@ import {NowPlayingProvider} from "../../providers/now-playing/now-playing";
 })
 export class NowPlayingControlBarComponent {
 
-  constructor(private nowPlaying: NowPlayingProvider) {
-    console.log(this.nowPlaying);
-    let name = this.nowPlaying;
+  constructor(public nowPlaying: NowPlayingProvider) {
   }
 
 }

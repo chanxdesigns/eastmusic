@@ -1,4 +1,25 @@
 now-playing-control-bar {
   position: fixed;
   bottom: 0;
+  width: 100%;
+
+  .now-playing {
+    background: color($colors, 'dark');
+    height: 50px;
+
+    .track-cover {
+      width: 40px;
+      height: 40px;
+      margin: .5rem 16px 0;
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    p {
+      margin: .2rem 0 0;
+    }
+  }
 }
