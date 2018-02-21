@@ -13,14 +13,27 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-card>
-    <ion-card-header>
-      {{trackName}}
-    </ion-card-header>
-    <ion-card-content>
-      {{timer}}
-      <button ion-button icon-right="play" (click)="play()" )>Play</button>
-    </ion-card-content>
-  </ion-card>
+<ion-content>
+  <div [style.background]="backgroundImg" class="main-bg">
+    <div padding class="tinted-bg">
+
+      <div class="track-details">
+        <p class="track-name" text-center>{{trackName}}</p>
+        <p class="track-artists" text-center>{{'Arbind & Pushparani'}}</p>
+      </div>
+      <div class="track-cover">
+        <ion-img width="450px" height="450px" src="{{trackCover}}"></ion-img>
+      </div>
+      <div class="track-timer"></div>
+      <div class="track-controls"></div>
+
+      <ion-card>
+      <ion-card-content>
+
+        <button ion-button icon-right="play" (click)="play()">Play</button>
+        <button danger ion-button icon-right="pause">Pause</button>
+      </ion-card-content>
+    </ion-card>
+    </div>
+  </div>
 </ion-content>

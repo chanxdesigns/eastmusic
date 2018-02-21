@@ -8,8 +8,10 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let track of tracks" [navPush]="nowPlaying" [navParams]="track">
+    <button ion-item *ngFor="let track of tracks" (click)="play(track)">
       {{ track.name }}
     </button>
   </ion-list>
 </ion-content>
+
+<now-playing-control-bar></now-playing-control-bar>

@@ -1,3 +1,49 @@
 page-now-playing {
+  .header-md {
+    background: #555555;
+  }
 
+  .main-bg {
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #666666;
+
+    .tinted-bg {
+      background: transparentize(color($colors, 'dark'), 0.1);
+      position: inherit;
+      top: 56px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .track-details {
+      color: color($colors, 'light');
+      margin: 0.6rem 0 1.5rem;
+
+      .track-name {
+        font-weight: 400;
+        margin: 0;
+        color: #ffffff;
+      }
+
+      .track-artists {
+        font-size: 1rem;
+        font-weight: 400;
+        color: darken(color($colors, 'light'), 30%);
+        margin: 0.25rem 0 0;
+      }
+    }
+
+    .track-cover {
+      margin: 0 auto;
+      width: 250px;
+      height: 250px;
+      overflow: hidden;
+      background: white;
+    }
+  }
 }

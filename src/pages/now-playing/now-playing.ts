@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Media, MediaObject } from "@ionic-native/media";
+import { NowPlayingProvider } from "../../providers/now-playing/now-playing";
 
 /**
  * Generated class for the NowPlayingPage page.
@@ -16,26 +16,21 @@ import { Media, MediaObject } from "@ionic-native/media";
 })
 export class NowPlayingPage {
 
-  public timer: number;
-  public trackName: String;
-  public play: any;
+  timer: number;
+  trackName: string;
+  trackCover: string;
+  backgroundImg: string;
+  duration: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private media: Media) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private nowPlaying: NowPlayingProvider) {
   }
 
   ionViewDidLoad() {
-    this.trackName = this.navParams.get('name');
-
-    const audio: MediaObject = this.media.create(this.navParams.get('url'));
-    setInterval(() => {
-      audio.getCurrentPosition().then((pos) => {
-        this.timer = pos;
-      })
-    });
-
-    this.play = () => {
-      audio.play();
-    }
+    this.trackName = this.nowPlaying.trackName;
+    this.trackCover = this.nowPlaying.trackCover;
+    this.timer = this.nowPlaying.timer;
+    this.duration = this.nowPlaying.duration;
+    this.backgroundImg = 'url(' + this.nowPlaying.trackBackground + ')';
   }
 
 }
