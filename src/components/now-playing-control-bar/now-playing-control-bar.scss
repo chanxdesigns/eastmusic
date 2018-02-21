@@ -2,17 +2,19 @@ now-playing-control-bar {
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 2;
 
   .now-playing {
     background: color($colors, 'dark');
     height: 50px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 
     .track-cover {
       width: 40px;
       height: 40px;
-      margin: .5rem 16px 0;
+      margin: .5rem .5rem 0;
 
       img {
         width: 40px;
@@ -22,6 +24,7 @@ now-playing-control-bar {
 
     p {
       margin: .2rem 0 0;
+      color: white;
     }
   }
 }

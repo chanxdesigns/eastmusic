@@ -13,12 +13,9 @@ import {NowPlayingPage} from "../../pages/now-playing/now-playing";
   templateUrl: 'now-playing-control-bar.html'
 })
 export class NowPlayingControlBarComponent {
+  playing: any = NowPlayingPage;
 
   constructor(public nowPlaying: NowPlayingProvider) {
   }
-
-  // navigate() {
-  //   this.navCtrl.push(NowPlayingPage);
-  // }
 
 }
