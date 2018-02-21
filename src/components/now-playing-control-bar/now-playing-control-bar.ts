@@ -1,7 +1,6 @@
-import {Component, ViewChild} from '@angular/core';
+import { Component } from '@angular/core';
 import {NowPlayingProvider} from "../../providers/now-playing/now-playing";
 import {NowPlayingPage} from "../../pages/now-playing/now-playing";
-import {NavController} from "ionic-angular";
 
 /**
  * Generated class for the NowPlayingControlBarComponent component.
@@ -15,17 +14,11 @@ import {NavController} from "ionic-angular";
 })
 export class NowPlayingControlBarComponent {
 
-  @ViewChild('myNav') navCtrl: NavController;
-
   constructor(public nowPlaying: NowPlayingProvider) {
   }
 
-  ngOnInit() {
-    this.navigate();
-  }
-
-  navigate() {
-    this.navCtrl.push(NowPlayingPage);
-  }
+  // navigate() {
+  //   this.navCtrl.push(NowPlayingPage);
+  // }
 
 }
