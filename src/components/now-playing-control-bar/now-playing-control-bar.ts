@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NowPlayingProvider} from "../../providers/now-playing/now-playing";
 
 /**
  * Generated class for the NowPlayingControlBarComponent component.
@@ -12,11 +13,9 @@ import { Component } from '@angular/core';
 })
 export class NowPlayingControlBarComponent {
 
-  text: string;
-
-  constructor() {
-    console.log('Hello NowPlayingControlBarComponent Component');
-    this.text = 'Hello World';
+  constructor(private nowPlaying: NowPlayingProvider) {
+    console.log(this.nowPlaying);
+    let name = this.nowPlaying;
   }
 
 }

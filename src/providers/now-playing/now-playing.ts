@@ -36,13 +36,13 @@ export class NowPlayingProvider {
 
   play(track: ITrack) {
 
-    console.log("Here now");
-
     // Set track metadata
     this.trackId = track.id;
     this.trackName = track.name;
     this.trackCover = track.cover;
     this.trackBackground = track.background;
+
+    console.log("Here now: " + this.trackName);
 
     const audio: MediaObject = this.media.create(track.url);
 
