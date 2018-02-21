@@ -3,6 +3,7 @@ import { NowPlayingControlBarComponent } from './now-playing-control-bar/now-pla
 @NgModule({
 	declarations: [NowPlayingControlBarComponent],
 	imports: [],
-	exports: [NowPlayingControlBarComponent]
+	exports: [NowPlayingControlBarComponent],
+  providers: []
 })
 export class ComponentsModule {}

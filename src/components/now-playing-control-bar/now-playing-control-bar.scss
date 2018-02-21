@@ -6,6 +6,8 @@ now-playing-control-bar {
   .now-playing {
     background: color($colors, 'dark');
     height: 50px;
+    display: flex;
+    flex-direction: row;
 
     .track-cover {
       width: 40px;
