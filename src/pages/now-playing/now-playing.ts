@@ -24,10 +24,12 @@ export class NowPlayingPage {
 
   ionViewDidEnter() {
     this.intervalometer = setInterval(() => {
-      if (Math.floor(this.nowPlaying.getCurrPos()) > -1) {
-        this.position = Math.floor(this.nowPlaying.getCurrPos());
-        console.log(this.position);
-      }
+      this.nowPlaying.getCurrPos()().then((pos) => {
+        if (Math.floor(pos) > -1) {
+          this.position = Math.floor(pos);
+          console.log(this.position);
+        }
+      });
     }, 1000)
   }
 

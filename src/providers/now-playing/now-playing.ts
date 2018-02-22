@@ -48,7 +48,7 @@ export class NowPlayingProvider {
   private albumBackground: string;
 
   // Time elapsed of track being played
-  private currPos: number;
+  private currPos: any;
 
   // Total duration of track in seconds
   private duration: number;
@@ -91,11 +91,12 @@ export class NowPlayingProvider {
     this.playing = true;
 
     // Get current pos every second
-    setInterval(() => {
-      audio.getCurrentPosition().then((pos) => {
-        this.currPos = pos;
-      });
-    });
+    // setInterval(() => {
+    //   audio.getCurrentPosition().then((pos) => {
+    //     this.currPos = pos;
+    //   });
+    // });
+    this.currPos = audio.getCurrentPosition.bind(audio);
 
     // // Get total duration of the audio
     // this.duration = audio.getDuration();

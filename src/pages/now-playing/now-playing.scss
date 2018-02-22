@@ -1,11 +1,14 @@
 page-now-playing {
   .toolbar-background {
-    background: transparentize(black, 0.2);
+    //background: transparentize(black, 0.2);
+    background: #22313F;
   }
 
   .toolbar-title {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    font-family: "Noto Sans", Roboto;
+    font-weight: 400;
   }
 
   .main-bg {
@@ -27,7 +30,9 @@ page-now-playing {
     }
 
     .tinted-bg {
-      background: transparentize(black, 0.3);
+      //background: transparentize(black, 0.3);
+      background:radial-gradient(ellipse at center, rgba(37,53,61,0.3) 0%, rgba(39,56,64,0.65) 40%, rgba(39,56,64,1) 100%); /* w3c */
+      padding: 0 40px;
       position: inherit;
       top: 56px;
       bottom: 0;
@@ -35,9 +40,28 @@ page-now-playing {
       right: 0;
     }
 
+    .right {
+      float: right;
+    }
+
+    .left {
+      float: left;
+    }
+
+    .p {
+      margin-top: 20px;
+    }
+
+    .heart-outline {
+      font-size: 25px;
+    }
+    .ios-more {
+      font-size: 34px;
+    }
+
     .track-details {
       color: color($colors, 'light');
-      margin: 1.5rem 0 1.5rem;
+      margin: 1.5rem 0 0;
 
       .track-name {
         font-weight: 400;
@@ -46,37 +70,39 @@ page-now-playing {
       }
 
       .track-artists {
-        font-size: 1rem;
+        font-size: 1.2rem;
         font-weight: 400;
         color: darken(color($colors, 'light'), 30%);
         margin: 0.25rem 0 0;
+        font-family: "Noto Sans", Roboto;
       }
     }
 
     .track-cover {
-      margin: 0 auto;
-      width: 250px;
-      height: 250px;
+      margin: 60px auto 20px;
+      width: 160px;
+      height: 150px;
       overflow: hidden;
-      background: white;
+      background: transparent;
+      border-radius: 4px;
+      border: 1px solid transparent;
     }
 
     .track-timer {
-      position: fixed;
-      bottom: 70px;
+      //position: fixed;
+      //bottom: 70px;
       width: 100%;
     }
 
     .track-controls {
-      position: fixed;
-      bottom: 30px;
       margin: 0 auto;
       width: 100%;
       padding: .5rem 0;
       background: transparent;
 
       .switches {
-        width: 40%;
+        //width: 60%;
+        padding: 0 10px 0 8px;
         margin: 0 auto;
         display: flex;
         flex-direction: row;
@@ -85,7 +111,7 @@ page-now-playing {
       }
 
       ion-icon {
-        font-size: 25px;
+        font-size: 22px;
         vertical-align: middle;
 
         &#playBtn {
