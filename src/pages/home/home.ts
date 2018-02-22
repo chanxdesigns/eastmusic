@@ -12,20 +12,30 @@ export class HomePage {
   private tracks: Array<Object>;
 
   constructor(public platform: Platform, private path: File, private nowPlayingProvider: NowPlayingProvider) {
+    console.log(platform);
+
     this.tracks = [
       {
         id: 123,
-        name: "Hallakkho",
         url: "https://s3.ap-south-1.amazonaws.com/eastmusic/hallakho.mp3",
-        cover: "https://i.ytimg.com/vi/QHij4Qhyfno/maxresdefault.jpg",
-        background:  this.path.applicationDirectory + "www/assets/imgs/bg-mock/ngammadi1-blurred.png"
+        trackName: "Hallakkho",
+        artists: "AJ Maisnam",
+        albumName: "Hallakho",
+        albumCover: "https://i.ytimg.com/vi/QHij4Qhyfno/maxresdefault.jpg",
+        albumBackground:  platform.is('android') ?
+          this.path.applicationDirectory + "www/assets/imgs/bg-mock/ngammadi1-blurred.png" :
+          + "../assets/imgs/bg-mock/ngammadi1-blurred.png"
       },
       {
         id: 1234,
-        name: "Ngammadi Phajou",
         url: "https://s3.ap-south-1.amazonaws.com/eastmusic/phajou.mp3",
-        cover: "https://i.ytimg.com/vi/6yCSn9BgFf8/maxresdefault.jpg",
-        background: this.path.applicationDirectory + "www/assets/imgs/bg-mock/nurei1-blurred.png"
+        trackName: "Ngammadi Phajou",
+        artists: "Arbind & Pushparani",
+        albumName: "Nurei",
+        albumCover: "https://i.ytimg.com/vi/6yCSn9BgFf8/maxresdefault.jpg",
+        albumBackground: platform.is('android') ?
+          this.path.applicationDirectory + "www/assets/imgs/bg-mock/nurei1-blurred.png" :
+          + "../assets/imgs/bg-mock/nurei1-blurred.png"
       }
     ];
   }

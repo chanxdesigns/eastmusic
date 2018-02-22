@@ -1,12 +1,12 @@
 <!-- Generated template for the NowPlayingControlBarComponent component -->
 <div class="now-playing" [navPush]="playing">
   <div class="track-cover">
-    <img [src]="nowPlaying.trackCover">
+    <img [src]="nowPlaying.getAlbumCover()">
   </div>
 
   <div class="track-details">
-    {{nowPlaying.trackName}}
-    {{nowPlaying.timer}}
+    <p class="track-name">{{nowPlaying.getName()}}</p>
+    <p class="track">{{nowPlaying.trackArtist}}</p>
   </div>
 
   <div class="track-controls">

@@ -1,12 +1,17 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Media, MediaObject} from "@ionic-native/media";
 
+/**
+ * Interface of the Track object
+ */
 interface ITrack {
   id: number,
   url: string,
-  name: string,
-  cover: string,
-  background: string
+  trackName: string,
+  artists: string,
+  albumName: string,
+  albumCover: string,
+  albumBackground: string
 }
 
 /*
@@ -18,47 +23,82 @@ interface ITrack {
 @Injectable()
 export class NowPlayingProvider {
 
-  playing: boolean;
+  // Audio Object
+  private currAudio: MediaObject;
 
-  trackId: number;
-  trackName: string;
-  trackCover: string;
-  trackBackground: string;
-  timer: number;
-  mediaStatus: string;
-  duration: number;
-  elapsed: number;
+  // Track play status
+  private playing: boolean;
 
-  pauseMedia: any;
+  // ID of the track being played
+  private id: number;
 
+  // Name of the track being played
+  private trackName: string;
+
+  // Name of the artist
+  private artists: string;
+
+  // Name of the album the track is associated with
+  private albumName: string;
+
+  // URL of the album cover image
+  private albumCover: string;
+
+  // URL of the album background image
+  private albumBackground: string;
+
+  // Time elapsed of track being played
+  private currPos: number;
+
+  // Total duration of track in seconds
+  private duration: number;
+
+  // Pause track function reference
+  private pauseMedia: any;
+
+  /**
+   * Inject Media in constructor
+   * @param {Media} media
+   */
   constructor(public media: Media) {
   }
 
+  /**
+   * Play the track and set default properties
+   * @param {ITrack} track
+   */
   play(track: ITrack) {
+    if (this.currAudio) {
+      this.currAudio.stop();
+      this.currAudio.release();
+    }
 
-    // Set track metadata
-    this.trackId = track.id;
-    this.trackName = track.name;
-    this.trackCover = track.cover;
-    this.trackBackground = track.background;
-
-    console.log("Here now: " + this.trackName);
-
+    // Set up the media
     const audio: MediaObject = this.media.create(track.url);
 
+    // Set track metadata
+    this.id = track.id;
+    this.trackName = track.trackName;
+    this.artists = track.artists;
+    this.albumName = track.albumName;
+    this.albumCover = track.albumCover;
+    this.albumBackground = track.albumBackground;
+
+    // Play the audio
     audio.play();
 
+    // Get current pos every second
     setInterval(() => {
       audio.getCurrentPosition().then((pos) => {
-        this.timer = pos;
+        this.currPos = pos;
       });
     });
 
+    // Get total duration of the audio
     this.duration = audio.getDuration();
 
+    // Get audio status
     audio.onStatusUpdate.subscribe(status => {
-      console.log("Audio Status " + status);
-
       switch (status) {
         case 0:
           this.playing = false;
@@ -77,11 +117,87 @@ export class NowPlayingProvider {
       }
     });
 
-    this.pauseMedia = audio.pause;
+    // Store a reference to the current audio object;
+    this.currAudio = audio;
   }
 
+  /**
+   * Pause the track being played
+   */
   pause() {
     this.pauseMedia();
+  }
+
+  /**
+   * Get current track status
+   * @returns {boolean}
+   */
+  getStatus() {
+    return this.playing;
+  }
+
+  /**
+   * Get current track id
+   * @returns {number}
+   */
+  getTrackId() {
+    return this.id;
+  }
+
+  /**
+   * Get current position of the track
+   * @returns {number}
+   */
+  getCurrPos() {
+    return this.currPos;
+  }
+
+  /**
+   * Get track name
+   * @returns {string}
+   */
+  getName() {
+    return this.trackName;
+  }
+
+  /**
+   * Get track artists name
+   * @returns {string}
+   */
+  getArtists() {
+    return this.artists;
+  }
+
+  /**
+   * Get album name
+   * @returns {string}
+   */
+  getAlbumName() {
+    return this.albumName;
+  }
+
+  /**
+   * Get album cover image
+   * @returns {string}
+   */
+  getAlbumCover() {
+    return this.albumCover;
+  }
+
+  /**
+   * Get album background image
+   * @returns {string}
+   */
+  getAlbumBackgroundImage() {
+    return this.albumBackground;
+  }
+
+  /**
+   * Get current tarck duration
+   * @returns {number}
+   */
+  getTrackDuration() {
+    return this.duration;
   }
 
 }

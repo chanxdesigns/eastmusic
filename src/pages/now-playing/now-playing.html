@@ -14,15 +14,15 @@
 
 
 <ion-content>
-  <div [style.background]="backgroundImg" class="main-bg">
+  <div [style.background]="nowPlaying.getAlbumBackgroundImage()" class="main-bg">
     <div padding class="tinted-bg">
 
       <div class="track-details">
-        <p class="track-name" text-center>{{trackName}}</p>
-        <p class="track-artists" text-center>{{'Arbind & Pushparani'}}</p>
+        <p class="track-name" text-center>{{nowPlaying.getName()}}</p>
+        <p class="track-artists" text-center>{{nowPlaying.getArtists()}} - {{nowPlaying.getAlbumName()}}</p>
       </div>
       <div class="track-cover">
-        <ion-img width="450px" height="450px" src="{{trackCover}}"></ion-img>
+        <ion-img width="450px" height="450px" src="{{nowPlaying.getAlbumCover()}}"></ion-img>
       </div>
       <div class="track-timer"></div>
       <div class="track-controls"></div>

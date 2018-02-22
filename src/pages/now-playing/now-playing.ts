@@ -16,21 +16,7 @@ import { NowPlayingProvider } from "../../providers/now-playing/now-playing";
 })
 export class NowPlayingPage {
 
-  timer: number;
-  trackName: string;
-  trackCover: string;
-  backgroundImg: string;
-  duration: number;
-
   constructor(public navCtrl: NavController, public navParams: NavParams, private nowPlaying: NowPlayingProvider) {
-  }
-
-  ionViewDidLoad() {
-    this.trackName = this.nowPlaying.trackName;
-    this.trackCover = this.nowPlaying.trackCover;
-    this.timer = this.nowPlaying.timer;
-    this.duration = this.nowPlaying.duration;
-    this.backgroundImg = 'url(' + this.nowPlaying.trackBackground + ')';
   }
 
 }
