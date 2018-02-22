@@ -117,6 +117,16 @@ export class NowPlayingProvider {
       }
     });
 
+    // On audio action success
+    audio.onSuccess.subscribe(data => {
+      console.log("Onsucess fired: "+data);
+    });
+
+    // On audio action fail
+    audio.onError.subscribe(err => {
+      console.log("Onerr " + err);
+    });
+
     // Store a reference to the current audio object;
     this.currAudio = audio;
   }
@@ -126,6 +136,11 @@ export class NowPlayingProvider {
    */
   pause() {
     this.pauseMedia();
+  }
+
+  seekTo(secs: number) {
+    let val = secs * 1000;
+    this.currAudio.seekTo(val);
   }
 
   /**

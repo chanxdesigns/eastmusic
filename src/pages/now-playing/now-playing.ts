@@ -16,7 +16,22 @@ import { NowPlayingProvider } from "../../providers/now-playing/now-playing";
 })
 export class NowPlayingPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private nowPlaying: NowPlayingProvider) {
+  intervalometer: any;
+  position: number;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public nowPlaying: NowPlayingProvider) {
+
+    this.intervalometer = setInterval(() => {
+      this.position = Math.floor(this.nowPlaying.getCurrPos());
+      console.log(this.position);
+    }, 1000);
+  }
+
+  ionView
+
+  seek(secs: number) {
+    console.log(secs);
+    this.nowPlaying.seekTo(secs);
   }
 
 }

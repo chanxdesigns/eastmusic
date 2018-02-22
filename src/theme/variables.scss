@@ -12,7 +12,7 @@ $font-path: "../assets/fonts";
 $app-direction: ltr;
 
 
-@import "ionic.globals";
+@import "ionic.globals";//
 
 
 // Shared Variables
@@ -53,7 +53,7 @@ $colors: (
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
+$range-md-bar-background-color: darken(white, 60%);
 
 
 

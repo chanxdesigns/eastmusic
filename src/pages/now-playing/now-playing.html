@@ -14,7 +14,8 @@
 
 
 <ion-content>
-  <div [style.background]="nowPlaying.getAlbumBackgroundImage()" class="main-bg">
+  <div class="main-bg">
+    <img [src]="nowPlaying.getAlbumBackgroundImage()" id="background">
     <div padding class="tinted-bg">
 
       <div class="track-details">
@@ -24,16 +25,13 @@
       <div class="track-cover">
         <ion-img width="450px" height="450px" src="{{nowPlaying.getAlbumCover()}}"></ion-img>
       </div>
-      <div class="track-timer"></div>
-      <div class="track-controls"></div>
-
-      <ion-card>
-      <ion-card-content>
-
-        <button ion-button icon-right="play" (click)="play()">Play</button>
-        <button danger ion-button icon-right="pause">Pause</button>
-      </ion-card-content>
-    </ion-card>
+      <div class="track-timer">
+        <ion-range [(ngModel)]="position" color="light" (ionBlur)="seek(position)" [max]=""></ion-range>
+      </div>
+      <div class="track-controls">
+        <ion-icon name="next" color="light"></ion-icon>
+        <ion-icon name="play" color="light"></ion-icon>
+      </div>
     </div>
   </div>
 </ion-content>
