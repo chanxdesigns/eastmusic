@@ -27,7 +27,7 @@ export class NowPlayingProvider {
   private currAudio: MediaObject;
 
   // Track play status
-  private playing: boolean;
+  private playing: boolean = false;
 
   // ID of the track being played
   private id: number;
@@ -87,6 +87,9 @@ export class NowPlayingProvider {
     // Play the audio
     audio.play();
 
+    // Set status to playing
+    this.playing = true;
+
     // Get current pos every second
     setInterval(() => {
       audio.getCurrentPosition().then((pos) => {
@@ -94,38 +97,38 @@ export class NowPlayingProvider {
       });
     });
 
-    // Get total duration of the audio
-    this.duration = audio.getDuration();
+    // // Get total duration of the audio
+    // this.duration = audio.getDuration();
 
     // Get audio status
-    audio.onStatusUpdate.subscribe(status => {
-      switch (status) {
-        case 0:
-          this.playing = false;
-          break;
+    // audio.onStatusUpdate.subscribe(status => {
+    //   switch (status) {
+    //     case 0:
+    //       this.playing = false;
+    //       break;
+    //
+    //     case 1:
+    //       this.playing = false;
+    //       break;
+    //
+    //     case 2:
+    //       this.playing = true;
+    //       break;
+    //
+    //     default:
+    //       this.playing = false;
+    //   }
+    // });
 
-        case 1:
-          this.playing = false;
-          break;
-
-        case 2:
-          this.playing = true;
-          break;
-
-        default:
-          this.playing = false;
-      }
-    });
-
-    // On audio action success
-    audio.onSuccess.subscribe(data => {
-      console.log("Onsucess fired: "+data);
-    });
+    // // On audio action success
+    // audio.onSuccess.subscribe(data => {
+    //   console.log("Onsucess fired: "+data);
+    // });
 
     // On audio action fail
-    audio.onError.subscribe(err => {
-      console.log("Onerr " + err);
-    });
+    // audio.onError.subscribe(err => {
+    //   console.log("Onerr " + err);
+    // });
 
     // On audio load failure
 
@@ -134,10 +137,17 @@ export class NowPlayingProvider {
   }
 
   /**
-   * Pause the track being played
+   * Toggle status of the track being played
    */
-  pause() {
-    this.currAudio.pause();
+  togglePlayPause() {
+    if (this.playing) {
+      this.currAudio.pause();
+      this.playing = false;
+    }
+    else {
+      this.currAudio.play();
+      this.playing = true;
+    }
   }
 
   seekTo(secs:number) {

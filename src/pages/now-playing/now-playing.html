@@ -33,7 +33,7 @@
       <div class="track-controls">
         <div class="switches">
           <ion-icon name="skip-backward" color="light"></ion-icon>
-          <ion-icon name="{{nowPlaying.getStatus() ? 'pause' : 'play'}}" color="light" id="playBtn" (click)="nowPlaying.getStatus() ? nowPlaying.pause() : ''"></ion-icon>
+          <ion-icon name="{{nowPlaying.getStatus() ? 'pause' : 'play'}}" color="light" id="playBtn" (click)="nowPlaying.togglePlayPause()"></ion-icon>
           <ion-icon name="skip-forward" color="light"></ion-icon>
         </div>
       </div>
