@@ -137,7 +137,7 @@ export class NowPlayingProvider {
    * Pause the track being played
    */
   pause() {
-    this.pauseMedia();
+    this.currAudio.pause();
   }
 
   seekTo(secs:number) {
