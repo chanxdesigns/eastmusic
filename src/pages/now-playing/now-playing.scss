@@ -1,6 +1,11 @@
 page-now-playing {
-  .header-md {
-    background: #555555;
+  .toolbar-background {
+    background: transparentize(black, 0.2);
+  }
+
+  .toolbar-title {
+    color: white;
+    font-size: 1.5rem;
   }
 
   .main-bg {
@@ -32,7 +37,7 @@ page-now-playing {
 
     .track-details {
       color: color($colors, 'light');
-      margin: 0.6rem 0 1.5rem;
+      margin: 1.5rem 0 1.5rem;
 
       .track-name {
         font-weight: 400;
@@ -57,7 +62,36 @@ page-now-playing {
     }
 
     .track-timer {
+      position: fixed;
+      bottom: 70px;
+      width: 100%;
+    }
 
+    .track-controls {
+      position: fixed;
+      bottom: 30px;
+      margin: 0 auto;
+      width: 100%;
+      padding: .5rem 0;
+      background: transparent;
+
+      .switches {
+        width: 40%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      ion-icon {
+        font-size: 25px;
+        vertical-align: middle;
+
+        &#playBtn {
+          font-size: 35px;
+        }
+      }
     }
   }
 }

@@ -127,6 +127,8 @@ export class NowPlayingProvider {
       console.log("Onerr " + err);
     });
 
+    // On audio load failure
+
     // Store a reference to the current audio object;
     this.currAudio = audio;
   }
@@ -138,7 +140,7 @@ export class NowPlayingProvider {
     this.pauseMedia();
   }
 
-  seekTo(secs: number) {
+  seekTo(secs:number) {
     let val = secs * 1000;
     this.currAudio.seekTo(val);
   }

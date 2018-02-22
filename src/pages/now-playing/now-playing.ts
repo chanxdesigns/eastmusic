@@ -20,14 +20,20 @@ export class NowPlayingPage {
   position: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public nowPlaying: NowPlayingProvider) {
-
-    this.intervalometer = setInterval(() => {
-      this.position = Math.floor(this.nowPlaying.getCurrPos());
-      console.log(this.position);
-    }, 1000);
   }
 
-  ionView
+  ionViewDidEnter() {
+    this.intervalometer = setInterval(() => {
+      if (Math.floor(this.nowPlaying.getCurrPos()) > -1) {
+        this.position = Math.floor(this.nowPlaying.getCurrPos());
+        console.log(this.position);
+      }
+    }, 1000)
+  }
+
+  ionViewDidLeave() {
+    clearInterval(this.intervalometer)
+  }
 
   seek(secs: number) {
     console.log(secs);

@@ -22,9 +22,7 @@ export class HomePage {
         artists: "AJ Maisnam",
         albumName: "Hallakho",
         albumCover: "https://i.ytimg.com/vi/QHij4Qhyfno/maxresdefault.jpg",
-        albumBackground:  platform.is('android') ?
-          this.path.applicationDirectory + "www/assets/imgs/bg-mock/ngammadi1-blurred.png" :
-          + "../assets/imgs/bg-mock/ngammadi1-blurred.png"
+        albumBackground:  "https://s3.ap-south-1.amazonaws.com/eastmusic/img/ngammadi1-blurred.png"
       },
       {
         id: 1234,
@@ -33,9 +31,7 @@ export class HomePage {
         artists: "Arbind & Pushparani",
         albumName: "Nurei",
         albumCover: "https://i.ytimg.com/vi/6yCSn9BgFf8/maxresdefault.jpg",
-        albumBackground: platform.is('android') ?
-          this.path.applicationDirectory + "www/assets/imgs/bg-mock/nurei1-blurred.png" :
-          + "../assets/imgs/bg-mock/nurei1-blurred.png"
+        albumBackground: "https://s3.ap-south-1.amazonaws.com/eastmusic/img/nurei1-blurred.png"
       }
     ];
   }
