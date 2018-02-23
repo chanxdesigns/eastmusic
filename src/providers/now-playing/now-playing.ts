@@ -90,7 +90,7 @@ export class NowPlayingProvider {
     audio.play();
 
     // Set status to playing
-    this.playing = true;
+    // this.playing = true;
 
     // Get current pos every second
     // setInterval(() => {
@@ -104,24 +104,28 @@ export class NowPlayingProvider {
     // this.duration = audio.getDuration();
 
     // Get audio status
-    // audio.onStatusUpdate.subscribe(status => {
-    //   switch (status) {
-    //     case 0:
-    //       this.playing = false;
-    //       break;
-    //
-    //     case 1:
-    //       this.playing = false;
-    //       break;
-    //
-    //     case 2:
-    //       this.playing = true;
-    //       break;
-    //
-    //     default:
-    //       this.playing = false;
-    //   }
-    // });
+    audio.onStatusUpdate.subscribe(status => {
+      switch (status) {
+        case 0:
+          this.playing = false;
+          break;
+
+        case 1:
+          this.playing = false;
+          break;
+
+        case 2:
+          this.playing = true;
+          break;
+
+        case 3:
+          this.playing = false;
+          break;
+
+        default:
+          this.playing = false;
+      }
+    });
 
     // // On audio action success
     // audio.onSuccess.subscribe(data => {
@@ -145,11 +149,9 @@ export class NowPlayingProvider {
   togglePlayPause() {
     if (this.playing) {
       this.currAudio.pause();
-      this.playing = false;
     }
     else {
       this.currAudio.play();
-      this.playing = true;
     }
   }
 

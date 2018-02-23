@@ -27,7 +27,7 @@ export class NowPlayingPage {
     this.intervalometer = setInterval(() => {
       this.nowPlaying.getCurrPos()().then((pos) => {
         if (Math.floor(pos) > -1) {
-          this.position = Math.floor(pos / 60);//moment.utc(moment.duration(Math.floor(pos) * 1000).asMilliseconds()).format("mm:ss")
+          this.position = Math.floor(pos);//moment.utc(moment.duration(Math.floor(pos) * 1000).asMilliseconds()).format("mm:ss")
         }
       });
     }, 1000)
