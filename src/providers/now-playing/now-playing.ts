@@ -6,6 +6,7 @@ import {Media, MediaObject} from "@ionic-native/media";
  */
 interface ITrack {
   id: number,
+  duration: number,
   url: string,
   trackName: string,
   artists: string,
@@ -83,6 +84,7 @@ export class NowPlayingProvider {
     this.albumName = track.albumName;
     this.albumCover = track.albumCover;
     this.albumBackground = track.albumBackground;
+    this.duration = track.duration;
 
     // Play the audio
     audio.play();

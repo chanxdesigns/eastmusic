@@ -17,6 +17,7 @@ export class HomePage {
     this.tracks = [
       {
         id: 123,
+        duration: 230,
         url: "https://s3.ap-south-1.amazonaws.com/eastmusic/hallakho.mp3",
         trackName: "Hallakkho",
         artists: "AJ Maisnam",
@@ -26,12 +27,23 @@ export class HomePage {
       },
       {
         id: 1234,
+        duration: 243,
         url: "https://s3.ap-south-1.amazonaws.com/eastmusic/phajou.mp3",
         trackName: "Ngammadi Phajou",
         artists: "Arbind & Pushparani",
         albumName: "Nurei",
         albumCover: "https://i.ytimg.com/vi/6yCSn9BgFf8/maxresdefault.jpg",
         albumBackground: "https://s3.ap-south-1.amazonaws.com/eastmusic/img/nurei1-blurred.png"
+      },
+      {
+        id: 12345,
+        duration: 255,
+        url: "https://s3.ap-south-1.amazonaws.com/eastmusic/fongamdana.mp3",
+        trackName: "Fongamdana",
+        artists: "Sanju Shamulailatpam & Raina Tekcham",
+        albumName: "Fongamdana",
+        albumCover: "https://s3.ap-south-1.amazonaws.com/eastmusic/img/fongamdana_cover.jpg",
+        albumBackground: "https://s3.ap-south-1.amazonaws.com/eastmusic/img/fongamdana_cover.jpg"
       }
     ];
   }
