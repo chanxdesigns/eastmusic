@@ -16,13 +16,14 @@
 <ion-content>
   <div class="main-bg">
     <img [src]="nowPlaying.getAlbumBackgroundImage()" id="background">
+
+    <ion-icon name="more" color="light" class="right misc-icon"></ion-icon>
+    <ion-icon name="heart-outline" color="light" class="right misc-icon"></ion-icon>
+
     <div class="tinted-bg">
 
-      <ion-icon name="more" color="light" class="right misc-icon"></ion-icon>
-      <ion-icon name="heart-outline" color="light" class="right misc-icon"></ion-icon>
-
       <div class="track-cover">
-        <ion-img width="300px" height="300px" src="{{nowPlaying.getAlbumCover()}}"></ion-img>
+        <ion-img width="350px" height="350px" src="{{nowPlaying.getAlbumCover()}}"></ion-img>
       </div>
 
       <div class="track-details">
@@ -49,6 +50,18 @@
           <ion-icon name="refresh" color="light"></ion-icon>
         </div>
       </div>
+
+      <ion-scroll>
+          <ion-list>Thamoi machum tahalle</ion-list>
+          <ion-list>Thamoi machum tahalle</ion-list>
+          <ion-list>Thamoi machum tahalle</ion-list>
+          <ion-list>Thamoi machum tahalle</ion-list>
+          <ion-list>Thamoi machum tahalle</ion-list>
+          <ion-list>Thamoi machum tahalle</ion-list>
+          <ion-list>Thamoi machum tahalle</ion-list>
+          <ion-list>Thamoi machum tahalle</ion-list>
+          <ion-list>Thamoi machum tahalle</ion-list>
+      </ion-scroll>
     </div>
   </div>
 </ion-content>
