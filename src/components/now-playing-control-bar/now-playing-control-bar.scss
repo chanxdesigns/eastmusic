@@ -2,29 +2,60 @@ now-playing-control-bar {
   position: fixed;
   bottom: 0;
   width: 100%;
+  background: color($colors, 'secondary');
   z-index: 2;
 
   .now-playing {
-    background: color($colors, 'dark');
     height: 50px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    width: 94.9%;
+    //justify-content: space-between;
+  }
 
-    .track-cover {
+  .track-cover {
+    width: 40px;
+    height: 40px;
+    margin: .5rem 15px 0 .6rem;
+    border-radius: 4px;
+    overflow: hidden;
+
+    img {
       width: 40px;
       height: 40px;
-      margin: .5rem .5rem 0;
+    }
+  }
 
-      img {
-        width: 40px;
-        height: 40px;
-      }
+  .track-details {
+    padding: .6rem 0 .5rem;
+
+    .track-name {
+      font-size: 13px;
+      color: white;
+      margin: 0;
     }
 
-    p {
-      margin: .2rem 0 0;
-      color: white;
+    .track-artists {
+      font-size: 11px;
+      color: darken(color($colors, 'light'), 25%);
+      margin: .25rem 0 0;
+    }
+  }
+
+  .track-controls {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    button {
+      padding: 13px;
+      background: transparent;
+    }
+
+    ion-icon {
+      font-size: 25px;
     }
   }
 }
+

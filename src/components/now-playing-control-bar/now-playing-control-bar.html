@@ -1,15 +1,17 @@
 <!-- Generated template for the NowPlayingControlBarComponent component -->
-<div class="now-playing" [navPush]="playing">
-  <div class="track-cover">
-    <img [src]="nowPlaying.getAlbumCover()">
-  </div>
 
-  <div class="track-details">
-    <p class="track-name">{{nowPlaying.getName()}}</p>
-    <p class="track">{{nowPlaying.trackArtist}}</p>
+  <div [navPush]="playing" class="now-playing">
+    <div class="track-cover">
+      <img [src]="nowPlaying.getAlbumCover()">
+    </div>
+
+    <div class="track-details">
+      <p class="track-name">{{nowPlaying.getName()}}</p>
+      <p class="track-artists">{{nowPlaying.getArtists()}}</p>
+    </div>
   </div>
 
   <div class="track-controls">
-    <button><ion-icon name="play" color="light"></ion-icon></button>
+    <button (click)="nowPlaying.togglePlayPause()"><ion-icon name="{{nowPlaying.getStatus() ? 'pause' : 'play'}}" color="light"></ion-icon></button>
   </div>
-</div>
+

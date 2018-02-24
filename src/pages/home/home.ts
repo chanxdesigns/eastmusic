@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Platform} from "ionic-angular";
 import {File} from "@ionic-native/file";
 import {NowPlayingProvider} from "../../providers/now-playing/now-playing";
 
@@ -11,9 +10,7 @@ import {NowPlayingProvider} from "../../providers/now-playing/now-playing";
 export class HomePage {
   private tracks: Array<Object>;
 
-  constructor(public platform: Platform, private path: File, private nowPlayingProvider: NowPlayingProvider) {
-    console.log(platform);
-
+  constructor(private path: File, private nowPlayingProvider: NowPlayingProvider) {
     this.tracks = [
       {
         id: 123,
@@ -23,7 +20,7 @@ export class HomePage {
         artists: "AJ Maisnam",
         albumName: "Hallakho",
         albumCover: "https://i.ytimg.com/vi/QHij4Qhyfno/maxresdefault.jpg",
-        albumBackground:  "https://s3.ap-south-1.amazonaws.com/eastmusic/img/ngammadi1-blurred.png"
+        albumBackground:  "https://i.ytimg.com/vi/QHij4Qhyfno/maxresdefault.jpg"
       },
       {
         id: 1234,
@@ -33,11 +30,11 @@ export class HomePage {
         artists: "Arbind & Pushparani",
         albumName: "Nurei",
         albumCover: "https://i.ytimg.com/vi/6yCSn9BgFf8/maxresdefault.jpg",
-        albumBackground: "https://s3.ap-south-1.amazonaws.com/eastmusic/img/nurei1-blurred.png"
+        albumBackground: "https://i.ytimg.com/vi/6yCSn9BgFf8/maxresdefault.jpg"
       },
       {
         id: 12345,
-        duration: 255,
+        duration: 264,
         url: "https://s3.ap-south-1.amazonaws.com/eastmusic/fongamdana.mp3",
         trackName: "Fongamdana",
         artists: "Sanju Shamulailatpam & Raina Tekcham",
@@ -49,7 +46,6 @@ export class HomePage {
   }
 
   play(audio) {
-    console.log("Audio hit" + audio)
     this.nowPlayingProvider.play(audio);
   }
 }

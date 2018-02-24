@@ -1,3 +1,63 @@
 page-home {
+  .toolbar-background {
+    background: color($colors, 'primary');
+    box-shadow: none;
+  }
 
+  .toolbar-title {
+    color: color($colors, 'light');
+    font-weight: 400;
+  }
+
+  section {
+    .section-header {
+      margin: 25px 0 10px;
+
+      .title {
+        font-size: 11px;
+        letter-spacing: 1px;
+        margin: 0;
+        color: lighten(color($colors, 'secondary'), 50%);
+      }
+    }
+
+    .track-lists {
+      white-space: nowrap;
+
+      .track-holder {
+        display: inline-block;
+        margin-right: 1rem;
+
+        &:first-of-type {
+          margin-left: 16px;
+        }
+
+        &:last-of-type {
+          margin-right: 16px;
+        }
+
+        .track-details {
+          padding: .6rem 0 .5rem;
+
+          .name {
+            font-size: 13px;
+            color: lighten(color($colors, 'secondary'), 20%);
+            margin: 0;
+          }
+
+          .subtitle {
+            font-size: 10px;
+            color: lighten(color($colors, 'secondary'), 60%);
+            margin: 0;
+          }
+        }
+
+        .track-img {
+          width: 120px;
+          height: 120px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
 }

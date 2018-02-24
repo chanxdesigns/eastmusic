@@ -1,127 +1,159 @@
 page-now-playing {
   .toolbar-background {
-    //background: transparentize(black, 0.2);
-    background: rgba(11,11,11,1);
+    background: rgba(11, 11, 11, 1);
   }
 
   .toolbar-title {
     color: white;
-    font-size: 1.8rem;
-    font-family: "Noto Sans", Roboto;
     font-weight: 400;
   }
 
-  .main-bg {
+  #background {
     position: fixed;
-    top: 56px;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: #666666;
+    width: auto;
+    height: 100%;
+    filter: blur(25px);
+  }
 
-    #background {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: auto;
-      height: 100%;
-      filter: blur(50px);
+  .tinted-bg {
+    position: relative;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 1) 100%);
+    padding: 70px 40px 25px;
+    //top: 56px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .misc-icon {
+    margin-top: 28px;
+    font-size: 25px;
+    margin-left: 20px;
+  }
+
+  .track-details {
+    color: color($colors, 'light');
+    margin: 1.7rem 0 0.8rem;
+
+    .track-name {
+      font-weight: 400;
+      margin: 0;
+      color: #ffffff;
     }
 
-    .tinted-bg {
-      position: fixed;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 100%);
-      //background:radial-gradient(ellipse at center, rgba(153,218,255,0) 0%, rgba(17,17,17,1) 100%);
-      padding: 70px 40px;
-      top: 56px;
-      bottom: 0;
-      left: 0;
-      right: 0;
+    .track-artists {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: darken(color($colors, 'light'), 30%);
+      margin: 0.25rem 0 0;
     }
+  }
 
-    //.grad-bg {
-    //  position: relative;
-    //  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,1) 100%);
-    //  //background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.78) 50%, rgba(0,0,0,0.778) 51%, rgba(0,0,0,0.74) 71%, rgba(0,0,0,0.72) 100%);/* W3C */
-    //}
+  .track-cover {
+    margin: 0px auto;
+    width: 200px;
+    height: 190px;
+    overflow: hidden;
+    background: transparent;
+    border-radius: 4px;
+    border: 1px solid #bbbbbb;
+  }
 
-    .misc-icon {
-      margin-top: 28px;
-      font-size: 25px;
-      margin-left: 20px;//
-    }
+  .track-timer {
+    width: 100%;
 
-    .track-details {
-      color: color($colors, 'light');
-      margin: 1.7rem 0 0.8rem;
-
-      .track-name {
-        font-weight: 400;
+    .timer-counter {
+      margin-top: -6px;
+      padding: 0 7px;
+      p {
         margin: 0;
-        color: #ffffff;
+        color: white;
+        font-size: 12px;
       }
+    }
+  }
 
-      .track-artists {
-        font-size: 1.2rem;
-        font-weight: 400;
-        color: darken(color($colors, 'light'), 30%);
-        margin: 0.25rem 0 0;
-        font-family: "Noto Sans", Roboto;
+  .track-controls {
+    margin: 1.2rem auto 0;
+    width: 100%;
+    padding: .5rem 0;
+    background: transparent;
+
+    .switches {
+      padding: 0 10px 0 8px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    ion-icon {
+      font-size: 22px;
+      vertical-align: middle;
+
+      &#playBtn {
+        font-size: 35px;
+      }
+    }
+  }
+
+  .tracklist {
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid lighten(color($colors, 'dark'), 5%);
+    background: color($colors, 'darkest');
+    padding: 10px 0;
+    color: white;
+
+    .tracklist-meta {
+      padding: 10px 0 20px 16px ;
+
+      .queues {
+        color: color($colors, 'light');
+        font-size: 14px;
+        margin: 0;
       }
     }
 
-    .track-cover {
-      margin: 0px auto;
-      width: 200px;
-      height: 190px;
-      overflow: hidden;
-      background: transparent;
+    ion-list {
+      button {
+        &.current {
+          background: color($colors, 'dark');
+        }
+
+        .label {
+          margin: .8rem 0;
+        }
+      }
+    }
+
+    .track-thumbnail {
+      margin-right: 15px;
       border-radius: 4px;
-      border: 1px solid #bbbbbb;
+      overflow: hidden;
+      width: 40px;
+      height: 40px;
     }
 
-    .track-timer {
-      //position: fixed;
-      //bottom: 70px;
-      width: 100%;
+    .track-info {
+      color: white;
 
-      .timer-counter {
-        margin-top: -6px;
-        padding: 0 7px;
-        p {
-          margin: 0;
-          color: white;
-          font-size: 12px;
-        }
+      .name {
+        font-size: 13px;
+      }
+      .artists {
+        font-size: 11px;
+        color: darken(color($colors, 'light'), 25%);
       }
     }
 
-    .track-controls {
-      margin: 1.2rem auto 0;
-      width: 100%;
-      padding: .5rem 0;
-      background: transparent;
-
-      .switches {
-        //width: 60%;
-        padding: 0 10px 0 8px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      ion-icon {
-        font-size: 22px;
-        vertical-align: middle;
-
-        &#playBtn {
-          font-size: 35px;
-        }
-      }
+    .track-options {
+      padding-right: 8px;//
     }
   }
 }

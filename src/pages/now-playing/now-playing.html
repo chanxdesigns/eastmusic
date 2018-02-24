@@ -14,54 +14,75 @@
 
 
 <ion-content>
-  <div class="main-bg">
-    <img [src]="nowPlaying.getAlbumBackgroundImage()" id="background">
+  <img [src]="nowPlaying.getAlbumBackgroundImage()" id="background">
 
-    <ion-icon name="more" color="light" class="right misc-icon"></ion-icon>
-    <ion-icon name="heart-outline" color="light" class="right misc-icon"></ion-icon>
+  <ion-icon name="more" color="light" class="right misc-icon"></ion-icon>
+  <ion-icon name="heart-outline" color="light" class="right misc-icon"></ion-icon>
 
-    <div class="tinted-bg">
+  <div class="tinted-bg">
 
-      <div class="track-cover">
-        <ion-img width="350px" height="350px" src="{{nowPlaying.getAlbumCover()}}"></ion-img>
-      </div>
-
-      <div class="track-details">
-        <h4 class="track-name" text-center>{{nowPlaying.getName()}}</h4>
-        <p class="track-artists" text-center>{{nowPlaying.getArtists()}} - {{nowPlaying.getAlbumName()}}</p>
-      </div>
-
-      <div class="track-timer">
-        <ion-range [(ngModel)]="position" color="light" (ionBlur)="seek(position)" [max]="nowPlaying.getTrackDuration()">
-        </ion-range>
-        <div class="timer-counter">
-          <p class="left">{{ position }}</p>
-          <p class="right">{{ nowPlaying.getTrackDuration() }}</p>
-          <div class="clearfix"></div>
-        </div>
-      </div>
-
-      <div class="track-controls">
-        <div class="switches">
-          <ion-icon name="shuffle" color="light"></ion-icon>
-          <ion-icon name="skip-backward" color="light"></ion-icon>
-          <ion-icon name="{{nowPlaying.getStatus() ? 'pause' : 'play'}}" color="light" id="playBtn" (click)="nowPlaying.togglePlayPause()"></ion-icon>
-          <ion-icon name="skip-forward" color="light"></ion-icon>
-          <ion-icon name="refresh" color="light"></ion-icon>
-        </div>
-      </div>
-
-      <!--<ion-scroll>-->
-          <!--<ion-list>Thamoi machum tahalle</ion-list>-->
-          <!--<ion-list>Thamoi machum tahalle</ion-list>-->
-          <!--<ion-list>Thamoi machum tahalle</ion-list>-->
-          <!--<ion-list>Thamoi machum tahalle</ion-list>-->
-          <!--<ion-list>Thamoi machum tahalle</ion-list>-->
-          <!--<ion-list>Thamoi machum tahalle</ion-list>-->
-          <!--<ion-list>Thamoi machum tahalle</ion-list>-->
-          <!--<ion-list>Thamoi machum tahalle</ion-list>-->
-          <!--<ion-list>Thamoi machum tahalle</ion-list>-->
-      <!--</ion-scroll>-->
+    <div class="track-cover">
+      <ion-img width="350px" height="350px" src="{{nowPlaying.getAlbumCover()}}"></ion-img>
     </div>
+
+    <div class="track-details">
+      <h4 class="track-name" text-center>{{nowPlaying.getName()}}</h4>
+      <p class="track-artists" text-center>{{nowPlaying.getArtists()}} - {{nowPlaying.getAlbumName()}}</p>
+    </div>
+
+    <div class="track-timer">
+      <ion-range [(ngModel)]="position" color="light" (ionBlur)="seek(position)" [max]="nowPlaying.getTrackDuration()">
+      </ion-range>
+      <div class="timer-counter">
+        <p class="left">{{ positionsInHumanReadable }}</p>
+        <p class="right">{{ duration }}</p>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+
+    <div class="track-controls">
+      <div class="switches">
+        <ion-icon name="shuffle" color="light"></ion-icon>
+        <ion-icon name="skip-backward" color="light"></ion-icon>
+        <ion-icon name="{{nowPlaying.getStatus() ? 'pause' : 'play'}}" color="light" id="playBtn"
+                  (click)="nowPlaying.togglePlayPause()"></ion-icon>
+        <ion-icon name="skip-forward" color="light"></ion-icon>
+        <ion-icon name="refresh" color="light"></ion-icon>
+      </div>
+    </div>
+
   </div>
+
+  <div class="tracklist">
+    <div class="tracklist-meta">
+      <p class="queues">Playing Queue 1/45</p>
+    </div>
+
+    <ion-list>
+      <button ion-item no-lines color="darkest" [ngClass]="{'current': nowPlaying.getTrackId() ===  nowPlaying.getTrackId()}">
+        <div class="track-thumbnail left">
+          <ion-img [width]="50" [height]="40" [src]="nowPlaying.getAlbumCover()"></ion-img>
+        </div>
+        <div class="track-info">
+          <p class="name">{{nowPlaying.getName()}}</p>
+          <p class="artists">{{nowPlaying.getArtists()}}</p>
+        </div>
+      </button>
+      <button ion-item color="darkest" [ngClass]="{'current' : false}">
+        <div class="track-thumbnail left">
+          <ion-img [width]="50" [height]="40" [src]="nowPlaying.getAlbumCover()"></ion-img>
+        </div>
+        <div class="track-info left">
+          <p class="name">{{nowPlaying.getName()}}</p>
+          <p class="artists">{{nowPlaying.getArtists()}}</p>
+        </div>
+        <div class="track-options right">
+          <ion-icon name="more" color="light"></ion-icon>
+        </div>
+        <div class="clearfix"></div>
+      </button>
+    </ion-list>
+    <!--<p ion-text color="light">Hey boy its done</p>-->
+  </div>
+
 </ion-content>

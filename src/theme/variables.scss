@@ -34,12 +34,13 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
+  primary:    #00C853,
+  secondary:  #212121,
   danger:     #f53d3d,
   light:      #f4f4f4,
   white:      #ffffff,
-  dark:       #222
+  dark:       #222,
+  darkest:    #000
 );
 
 
@@ -60,6 +61,7 @@ $range-md-bar-height: 4px;
 $range-md-knob-width: 24px;
 $range-md-padding-vertical: 4px;
 $range-md-slider-height: 30px;
+$toolbar-md-title-font-size: 1.8rem;
 
 
 

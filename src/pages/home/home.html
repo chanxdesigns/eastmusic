@@ -1,12 +1,32 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Track list
+      Home
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <section>
+    <div class="section-header" padding-left>
+      <p class="title">NEW & TRENDING</p>
+    </div>
+
+    <div class="track-lists">
+      <ion-scroll scrollX="true" style="height: 200px;">
+        <div class="track-holder" *ngFor="let track of tracks" (click)="play(track)">
+          <div class="track-img">
+            <ion-img [height]="220" [width]="220" [src]="track.albumCover"></ion-img>
+          </div>
+          <div class="track-details">
+            <p class="name">{{track.trackName}}</p>
+            <p class="subtitle">{{track.artists}}</p>
+          </div>
+        </div>
+      </ion-scroll>
+    </div>
+  </section>
+
   <ion-list>
     <button ion-item *ngFor="let track of tracks" (click)="play(track)">
       {{ track.trackName }}
