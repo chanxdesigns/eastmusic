@@ -1,37 +1,99 @@
-<ion-header>
+<ion-header no-border>
   <ion-navbar>
+
     <ion-title>
       Home
     </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <section>
-    <div class="section-header" padding-left>
-      <p class="title">NEW & TRENDING</p>
+
+  <!--Latest & Trending-->
+  <section id="new-trending">
+    <div class="section-header" padding-left padding-right>
+      <h4 class="title left">NEW & TRENDING</h4>
+      <div class="line"></div>
+      <button color="dark" class="right view-all" clear>View all</button>
+      <div class="clearfix"></div>
     </div>
 
     <div class="track-lists">
-      <ion-scroll scrollX="true" style="height: 200px;">
+      <ion-scroll scrollX="true">
         <div class="track-holder" *ngFor="let track of tracks" (click)="play(track)">
           <div class="track-img">
-            <ion-img [height]="220" [width]="220" [src]="track.albumCover"></ion-img>
+            <ion-thumbnail item-start>
+              <ion-img [height]="220" [width]="220" [src]="track.albumCover"></ion-img>
+            </ion-thumbnail>
           </div>
           <div class="track-details">
-            <p class="name">{{track.trackName}}</p>
-            <p class="subtitle">{{track.artists}}</p>
+            <p class="name">{{track.trackName | textTrimmer:25}}</p>
+            <p class="subtitle">{{track.artists | textTrimmer:25}}</p>
           </div>
         </div>
       </ion-scroll>
     </div>
   </section>
 
-  <ion-list>
-    <button ion-item *ngFor="let track of tracks" (click)="play(track)">
-      {{ track.trackName }}
-    </button>
-  </ion-list>
+  <!--Recently Played-->
+  <section id="recent">
+    <div class="section-header" padding-left padding-right>
+      <h4 class="title left">RECENTLY PLAYED</h4>
+      <div class="line"></div>
+      <button color="dark" class="right view-all" clear>View all</button>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="track-lists">
+      <ion-scroll scrollX="true">
+        <div class="track-holder" *ngFor="let track of tracks" (click)="play(track)">
+          <div class="track-img">
+            <ion-thumbnail item-start>
+              <ion-img [height]="220" [width]="220" [src]="track.albumCover"></ion-img>
+            </ion-thumbnail>
+          </div>
+          <div class="track-details">
+            <p class="name">{{track.trackName | textTrimmer:25}}</p>
+            <p class="subtitle">{{track.artists | textTrimmer:25}}</p>
+          </div>
+        </div>
+      </ion-scroll>
+    </div>
+  </section>
+
+  <!-- New Arrivals -->
+  <section id="new-arrivals">
+    <div class="section-header" padding-left padding-right>
+      <h4 class="title left">NEW ARRIVALS</h4>
+      <div class="line"></div>
+      <button color="dark" class="right view-all" clear>View all</button>
+      <div class="clearfix"></div>
+    </div>
+
+    <div class="track-lists">
+      <ion-scroll scrollX="true">
+        <div class="track-holder" *ngFor="let track of tracks" (click)="play(track)">
+          <div class="track-img">
+            <ion-thumbnail item-start>
+              <ion-img [height]="220" [width]="220" [src]="track.albumCover"></ion-img>
+            </ion-thumbnail>
+          </div>
+          <div class="track-details">
+            <p class="name">{{track.trackName | textTrimmer:25}}</p>
+            <p class="subtitle">{{track.artists | textTrimmer:25}}</p>
+          </div>
+        </div>
+      </ion-scroll>
+    </div>
+  </section>
+
+  <div class="fixed-content-padding"></div>
 </ion-content>
 
 <now-playing-control-bar></now-playing-control-bar>

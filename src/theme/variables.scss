@@ -37,8 +37,7 @@ $colors: (
   primary:    #00C853,
   secondary:  #212121,
   danger:     #f53d3d,
-  light:      #f4f4f4,
-  white:      #ffffff,
+  light:      #ffffff,
   dark:       #222,
   darkest:    #000
 );
@@ -55,13 +54,15 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-$font-family-md-base: "Noto Sans", "Roboto";
+//$font-family-md-base: "Roboto";
 $range-md-bar-background-color: darken(white, 60%);
 $range-md-bar-height: 4px;
 $range-md-knob-width: 24px;
 $range-md-padding-vertical: 4px;
 $range-md-slider-height: 30px;
 $toolbar-md-title-font-size: 1.8rem;
+$list-md-border-color: darken(color($colors, 'secondary'), 10%);
+
 
 
 

@@ -1,4 +1,8 @@
 page-home {
+  ion-content {
+    background: darken(color($colors, 'light'), 2%)!important;
+  }
+
   .toolbar-background {
     background: color($colors, 'primary');
     box-shadow: none;
@@ -6,23 +10,49 @@ page-home {
 
   .toolbar-title {
     color: color($colors, 'light');
-    font-weight: 400;
   }
 
   section {
     .section-header {
       margin: 25px 0 10px;
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+      justify-content: space-between;
+      align-items: center;
+
+      .line {
+        border-top: 1px solid darken(color($colors, 'light'), 10%);
+        width: 100%;
+        margin: 0 10px
+      }
 
       .title {
         font-size: 11px;
+        font-weight: 500;
         letter-spacing: 1px;
         margin: 0;
         color: lighten(color($colors, 'secondary'), 50%);
+        white-space: nowrap;
+      }
+
+      .view-all {
+        margin-top: 2px;
+        font-size: 10px;
+        font-weight: 600;
+        background: transparent;
+        color: lighten(color($colors, 'secondary'), 50%);
+        padding: 0;
+        white-space: nowrap;
       }
     }
 
     .track-lists {
       white-space: nowrap;
+
+      ion-scroll {
+        height: 160px;
+      }
 
       .track-holder {
         display: inline-block;
@@ -41,14 +71,14 @@ page-home {
 
           .name {
             font-size: 13px;
-            color: lighten(color($colors, 'secondary'), 20%);
+            color: lighten(color($colors, 'secondary'), 25%);
             margin: 0;
           }
 
           .subtitle {
             font-size: 10px;
             color: lighten(color($colors, 'secondary'), 60%);
-            margin: 0;
+            margin: .25rem 0 0;
           }
         }
 
@@ -56,8 +86,13 @@ page-home {
           width: 120px;
           height: 120px;
           overflow: hidden;
+          //border-radius: 4px;
         }
       }
     }
+  }
+
+  .fixed-content-padding {
+    margin-bottom: 50px;
   }
 }

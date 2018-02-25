@@ -11,13 +11,15 @@ import { HomePage } from '../pages/home/home';
 import { NowPlayingPage } from "../pages/now-playing/now-playing";
 import {Media} from "@ionic-native/media";
 import {NowPlayingControlBarComponent} from "../components/now-playing-control-bar/now-playing-control-bar";
+import {TextTrimmerPipe} from "../pipes/text-trimmer/text-trimmer";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     NowPlayingPage,
-    NowPlayingControlBarComponent
+    NowPlayingControlBarComponent,
+    TextTrimmerPipe
   ],
   imports: [
     BrowserModule,

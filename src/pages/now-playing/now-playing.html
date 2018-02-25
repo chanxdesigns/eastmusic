@@ -27,11 +27,11 @@
 
     <div class="track-details">
       <h4 class="track-name" text-center>{{nowPlaying.getName()}}</h4>
-      <p class="track-artists" text-center>{{nowPlaying.getArtists()}} - {{nowPlaying.getAlbumName()}}</p>
+      <p class="track-artists" text-center>{{nowPlaying.getArtists() | textTrimmer:37}}</p>
     </div>
 
     <div class="track-timer">
-      <ion-range [(ngModel)]="position" color="light" (ionBlur)="seek(position)" [max]="nowPlaying.getTrackDuration()">
+      <ion-range [(ngModel)]="position" color="primary" (ionBlur)="seek(position)" [max]="nowPlaying.getTrackDuration()">
       </ion-range>
       <div class="timer-counter">
         <p class="left">{{ positionsInHumanReadable }}</p>
@@ -59,13 +59,13 @@
     </div>
 
     <ion-list>
-      <button ion-item no-lines color="darkest" [ngClass]="{'current': nowPlaying.getTrackId() ===  nowPlaying.getTrackId()}">
+      <button ion-item color="darkest" [ngClass]="{'current': nowPlaying.getTrackId() ===  nowPlaying.getTrackId()}">
         <div class="track-thumbnail left">
           <ion-img [width]="50" [height]="40" [src]="nowPlaying.getAlbumCover()"></ion-img>
         </div>
         <div class="track-info">
           <p class="name">{{nowPlaying.getName()}}</p>
-          <p class="artists">{{nowPlaying.getArtists()}}</p>
+          <p class="artists">{{nowPlaying.getArtists() | textTrimmer:37}}</p>
         </div>
       </button>
       <button ion-item color="darkest" [ngClass]="{'current' : false}">

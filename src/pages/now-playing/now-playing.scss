@@ -5,7 +5,6 @@ page-now-playing {
 
   .toolbar-title {
     color: white;
-    font-weight: 400;
   }
 
   #background {
@@ -78,7 +77,7 @@ page-now-playing {
   }
 
   .track-controls {
-    margin: 1.2rem auto 0;
+    margin: 1.2rem auto 1.8rem;
     width: 100%;
     padding: .5rem 0;
     background: transparent;
@@ -141,6 +140,7 @@ page-now-playing {
     }
 
     .track-info {
+      margin-top: .7rem;
       color: white;
 
       .name {
@@ -148,7 +148,7 @@ page-now-playing {
       }
       .artists {
         font-size: 11px;
-        color: darken(color($colors, 'light'), 25%);
+        color: darken(color($colors, 'light'), 60%);
       }
     }
 

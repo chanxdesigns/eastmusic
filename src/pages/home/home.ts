@@ -29,8 +29,8 @@ export class HomePage {
         trackName: "Ngammadi Phajou",
         artists: "Arbind & Pushparani",
         albumName: "Nurei",
-        albumCover: "https://i.ytimg.com/vi/6yCSn9BgFf8/maxresdefault.jpg",
-        albumBackground: "https://i.ytimg.com/vi/6yCSn9BgFf8/maxresdefault.jpg"
+        albumCover: "https://i.ytimg.com/vi/JLg-OraDu1c/maxresdefault.jpg",
+        albumBackground: "https://i.ytimg.com/vi/JLg-OraDu1c/maxresdefault.jpg"
       },
       {
         id: 12345,

@@ -14,11 +14,17 @@ now-playing-control-bar {
   }
 
   .track-cover {
+    position: relative;
     width: 40px;
     height: 40px;
     margin: .5rem 15px 0 .6rem;
     border-radius: 4px;
     overflow: hidden;
+
+    &:after {
+      position: absolute;
+      content: ""
+    }
 
     img {
       width: 40px;
@@ -27,7 +33,7 @@ now-playing-control-bar {
   }
 
   .track-details {
-    padding: .6rem 0 .5rem;
+    padding: 1rem 0 .5rem;
 
     .track-name {
       font-size: 13px;
@@ -37,8 +43,8 @@ now-playing-control-bar {
 
     .track-artists {
       font-size: 11px;
-      color: darken(color($colors, 'light'), 25%);
-      margin: .25rem 0 0;
+      color: darken(color($colors, 'light'), 60%);
+      margin: .2rem 0 0;
     }
   }
 
